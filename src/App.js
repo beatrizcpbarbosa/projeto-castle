@@ -1,4 +1,4 @@
-import ProviderShop from './ContexApi/provider'
+import ProviderShop from './ContextApi/Provider'
 import Home from './Pages/Home';
 import './App.css';
 
