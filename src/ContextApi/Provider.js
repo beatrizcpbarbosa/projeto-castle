@@ -27,6 +27,10 @@ function Provider({ children }) {
   }, []);
 
   function getTotal(product) {
+    if(cart.length === 1 && product.amout === 1){
+      setTotal(product.price);
+    }
+
     const total = cart.reduce((prev, item) => {
       return prev + (item.price * item.amount);
     },0)
@@ -40,7 +44,7 @@ function Provider({ children }) {
   
     if(check) {
       setCart((previous) => [...previous, product]);
-      setTotal(product.price);
+      getTotal(product);
     } else {
       alert("O produto já foi adicionado ao carrinho");
     }

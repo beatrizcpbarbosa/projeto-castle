@@ -28,11 +28,12 @@ function ShopCart() {
             </div>
             <p>{ price * amount }</p>
             <button type="button" onClick={() => remove(item)}> deletar </button>
-            <p>Total:</p>
-            <span>{ total }</span>
           </div>
         );
       }) }
+
+      <p>Total:</p>
+      <span>{ total }</span>
       
     </section>
   );
