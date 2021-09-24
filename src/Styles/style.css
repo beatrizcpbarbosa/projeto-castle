@@ -235,6 +235,10 @@
   padding: 5px;
 }
 
+.empty {
+  text-align: center;
+}
+
 .header {
   background-color: black;
   width: 100%;
@@ -294,6 +298,7 @@
   font-size: 26px;
   text-transform: uppercase;
   letter-spacing: .2rem;
+  margin-bottom: 50px;
 }
 
 .rec.rec-arrow {
@@ -309,5 +314,46 @@
 
 button.rec-dot {
   visibility: hidden;
+}
+
+.loading {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100vh;
+}
+
+.loading div {
+  width: 50px;
+  height: 50px;
+  border: 6px solid black;
+  border-top: #00D78B;
+  border-radius: 100%;
+  -webkit-animation: roatating 1s infinite;
+          animation: roatating 1s infinite;
+}
+
+@-webkit-keyframes roatating {
+  to {
+    -webkit-transform: rotate(1turn);
+            transform: rotate(1turn);
+  }
+}
+
+@keyframes roatating {
+  to {
+    -webkit-transform: rotate(1turn);
+            transform: rotate(1turn);
+  }
 }
 /*# sourceMappingURL=style.css.map */

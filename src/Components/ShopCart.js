@@ -5,8 +5,20 @@ import { FiX } from "react-icons/fi";
 function ShopCart() {
   const { cart, increment, decrement, remove, total, setshowCart } = useContext(Context);
 
-  if(!cart){
-    return <h2> Your cart is empty!</h2>
+  
+  if(cart.length === 0){
+    return (
+      <section className="bg-shopcart">
+        <section className="section-shopcart">
+        <div className="header-shopcart">
+          <h2 className="empty"> Sua sacola está vazia! </h2>
+          <button type="button" onClick={() => setshowCart(false)} className="button"> 
+            <FiX  size={16}/> 
+          </button>
+        </div>
+        </section>
+       </section>    
+    );
   } 
 
   return (

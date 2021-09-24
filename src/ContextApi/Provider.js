@@ -34,7 +34,6 @@ function Provider({ children }) {
     const total = cart.reduce((prev, item) => {
       return prev + (item.price * item.amount);
     },0)
-
     setTotal(total);
   }
 

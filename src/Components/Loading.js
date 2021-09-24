@@ -2,8 +2,8 @@ import React from 'react';
 
 function Loading() {
   return(
-      <section>
-        loading
+      <section className="loadung">
+        <div></div>
       </section>
     )
 }
