@@ -46,8 +46,8 @@
 }
 
 .total {
-  @include flex(row, center, center);
-  text-align: center;
+  @include flex(row, justify-left, center);
+  text-align: left;
   font-weight: bold;
 }
 
@@ -59,6 +59,7 @@
   background-color: $basecolor;
   font-size: 16px;
   font-weight: bold;
+  border-radius: 3px;
 }
 
 .shop {
@@ -97,4 +98,8 @@
   text-align: center;
 }
 
+.products-section {
+  height: 550px;
+  overflow: scroll;
+}
 

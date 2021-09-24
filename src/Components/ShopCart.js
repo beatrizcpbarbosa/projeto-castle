@@ -32,6 +32,7 @@ function ShopCart() {
         </button>
       </div>
 
+      <div className="products-section">
         { cart.map((item) => {
           const { thumbnail, price, title, amount, id } = item;
           return (
@@ -64,12 +65,12 @@ function ShopCart() {
             </div>
           );
         }) }
+        </ div>
 
 
         <div className="finalizar-compra">
           <div className="total"> 
-            <p>Total: </p>
-            <p>{ total }</p>
+            { cart.length > 1 ? <p>{`Total: ${total}`} </p> : null }
           </div>
 
           <button type="button" className="button finalizarPedido"> Finalizar pedido </button>
