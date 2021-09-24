@@ -13,12 +13,12 @@ function Home() {
     );
   }
 
-  return(
-    <>
+  return (
+    <section>
       <Header />
       <ProductsList products={ products } />
-    </>
-  )
+    </section>
+  );
 }
 
 export default Home;
