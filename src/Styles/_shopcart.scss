@@ -66,12 +66,15 @@
   margin-left: 20px;
   background-color: white;
   @include flex(row, justify-right, center);
-  margin-bottom: 10px;
+  margin-bottom: 25px;
 }
 
 .conteudo-texto {
   @include flex(row, space-around, center);
   margin-left: 10px;
+  p {
+    width: 70%;
+  }
   button {
     background-color: rgb(238, 238, 238);
     height: 25px;

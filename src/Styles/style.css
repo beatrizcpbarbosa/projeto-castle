@@ -173,7 +173,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 25px;
 }
 
 .conteudo-texto {
@@ -190,6 +190,10 @@
       -ms-flex-align: center;
           align-items: center;
   margin-left: 10px;
+}
+
+.conteudo-texto p {
+  width: 70%;
 }
 
 .conteudo-texto button {
