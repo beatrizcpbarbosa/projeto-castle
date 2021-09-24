@@ -7,6 +7,7 @@ function Provider({ children }) {
   const [products, setProducts] = useState([]);
   const [isLoading, setisLoading] = useState(true);
   const [cart, setCart] = useState([]);
+  const [showCart, setshowCart] = useState(false);
 
   async function getProducts() {
     const data = await fetch('https://api.mercadolibre.com/sites/MLB/search?q=$camisas');
@@ -35,6 +36,8 @@ function Provider({ children }) {
     isLoading,
     addToCart,
     cart,
+    showCart, 
+    setshowCart
   };
 
   return (
