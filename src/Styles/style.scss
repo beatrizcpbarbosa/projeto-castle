@@ -1,6 +1,7 @@
-@import './utils';
+@import './utils', './shopcart';
 
 // './card', './carrossel', './shopcart';
+
 
 .header {
   background-color: $secondcolor;
@@ -9,8 +10,7 @@
 	@include flex(row, space-around, center);
 
 	button {
-		border-style: none;
-		background-color: rgba(255, 255, 255, 0);
+		@include buttonStyle;
 		@include flex(row, center, center);
 	}
 }
@@ -27,5 +27,4 @@
 	text-align: center;
 	line-height: 16px;
 	font-size: 10px;
-
 }

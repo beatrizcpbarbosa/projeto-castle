@@ -1,0 +1,96 @@
+.bg-shopcart {
+  background-color: rgba(0, 0, 0, 0.377);
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+}
+
+.section-shopcart {
+  background-color: white;
+  width: 30%;
+  height: 100vh; 
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+  right: 0; 
+  @media screen and (max-width: $breakpoint){ 
+    width: 80%;
+  }
+}
+
+.button {
+	@include buttonStyle;
+}
+
+.header-shopcart {
+  @include flex(row, space-between, center);
+  margin-bottom: 30px;
+  margin-left: 20px;
+  margin-right: 20px;;
+  button {
+    background-color: $basecolor;
+    height: 30px;
+	  width: 30px;
+	  border-radius: 100%;
+    @include flex(row, center, center);
+  }
+}
+
+.finalizar-compra {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  margin-left: 20px;
+}
+
+.total {
+  @include flex(row, center, center);
+  text-align: center;
+  font-weight: bold;
+}
+
+.finalizarPedido {
+  margin: 0 auto;
+  margin-bottom: 30px;
+  width: 90%;
+  height: 60px;
+  background-color: $basecolor;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.shop {
+  margin-left: 20px;
+  background-color: white;
+  @include flex(row, justify-right, center);
+  margin-bottom: 10px;
+}
+
+.conteudo-texto {
+  @include flex(row, space-around, center);
+  margin-left: 10px;
+  button {
+    background-color: rgb(238, 238, 238);
+    height: 25px;
+	  width: 25px;
+	  border-radius: 100%;
+    margin-left: 20px;
+    @include flex(row, center, center);
+  }
+}
+
+.conteudo-preco {
+  @include flex(row, space-around, center);
+  p {
+    font-weight: bold;
+  }
+}
+
+.btn-preco {
+  border: solid $secondcolor 1px;
+  padding: 5px;
+}
+
+
