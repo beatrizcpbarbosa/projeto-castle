@@ -70,7 +70,8 @@ function ShopCart() {
 
         <div className="finalizar-compra">
           <div className="total"> 
-            { cart.length > 1 ? <p>{`Total: ${total}`} </p> : null }
+            {/* { cart.length > 1 ? <p>{`Total: ${total}`} </p> : null } */}
+            <p> Total: {total} </p>
           </div>
 
           <button type="button" className="button finalizarPedido"> Finalizar pedido </button>

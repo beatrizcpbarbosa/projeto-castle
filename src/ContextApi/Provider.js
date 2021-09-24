@@ -26,11 +26,11 @@ function Provider({ children }) {
     getProducts();
   }, []);
 
-  function getTotal(product) {
-    // if(cart.length === 1 && product.amout === 1){
-    //   setTotal(product.price);
-    // }
+  useEffect(() => {
+    getTotal();
+  }, [cart]);
 
+  function getTotal() {
     const total = cart.reduce((prev, item) => {
       return prev + (item.price * item.amount);
     },0)
@@ -43,8 +43,7 @@ function Provider({ children }) {
   
     if(check) {
       setCart((previous) => [...previous, product]);
-      getTotal(product);
-      
+      getTotal();
     } else {
       alert("O produto já foi adicionado ao carrinho");
     }
@@ -61,7 +60,7 @@ function Provider({ children }) {
     updateCart[index] = product;
 
     setCart(updateCart);
-    getTotal(product);
+    getTotal();
   }
 
   function decrement(product) {
@@ -77,7 +76,7 @@ function Provider({ children }) {
     updateCart[index] = product;
 
     setCart(updateCart);
-    getTotal(product);
+    getTotal();
   }
 
   function remove(product) {
@@ -94,7 +93,7 @@ function Provider({ children }) {
     console.log(removeProduct);
 
     setCart([...removeProduct]);
-    getTotal(product);
+    getTotal();
   }
 
   const contextValue = {
