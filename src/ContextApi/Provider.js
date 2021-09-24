@@ -8,6 +8,7 @@ function Provider({ children }) {
   const [isLoading, setisLoading] = useState(true);
   const [cart, setCart] = useState([]);
   const [showCart, setshowCart] = useState(false);
+  const [total, setTotal] = useState(0);
   
 
   async function getProducts() {
@@ -25,12 +26,21 @@ function Provider({ children }) {
     getProducts();
   }, []);
 
+  function getTotal(product) {
+    const total = cart.reduce((prev, item) => {
+      return prev + (item.price * item.amount);
+    },0)
+
+    setTotal(total);
+  }
+
   function addToCart(product) {
     const check = cart.every((item) => product.id !== item.id);
     console.log(check);
   
     if(check) {
       setCart((previous) => [...previous, product]);
+      setTotal(product.price);
     } else {
       alert("O produto já foi adicionado ao carrinho");
     }
@@ -47,7 +57,7 @@ function Provider({ children }) {
     updateCart[index] = product;
 
     setCart(updateCart);
-
+    getTotal(product);
   }
 
   function decrement(product) {
@@ -63,6 +73,7 @@ function Provider({ children }) {
     updateCart[index] = product;
 
     setCart(updateCart);
+    getTotal(product);
   }
 
   function remove(product) {
@@ -79,8 +90,9 @@ function Provider({ children }) {
     console.log(removeProduct);
 
     setCart([...removeProduct]);
+    getTotal(product);
   }
-  
+
   const contextValue = {
     products,
     isLoading,
@@ -91,6 +103,8 @@ function Provider({ children }) {
     increment,
     decrement,
     remove,
+    getTotal,
+    total,
   };
 
   return (

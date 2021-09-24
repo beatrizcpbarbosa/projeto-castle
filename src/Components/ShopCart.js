@@ -3,7 +3,7 @@ import Context from '../ContextApi/Context';
 
 
 function ShopCart() {
-  const { cart, increment, decrement, remove, getTotal, setshowCart } = useContext(Context);
+  const { cart, increment, decrement, remove, total, setshowCart } = useContext(Context);
 
   if(!cart){
     return <h2> Your cart is empty!</h2>
@@ -29,7 +29,7 @@ function ShopCart() {
             <p>{ price * amount }</p>
             <button type="button" onClick={() => remove(item)}> deletar </button>
             <p>Total:</p>
-            <span>{() => getTotal(item)}</span>
+            <span>{ total }</span>
           </div>
         );
       }) }
