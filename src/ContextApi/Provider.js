@@ -43,7 +43,6 @@ function Provider({ children }) {
   
     if(check) {
       setCart((previous) => [...previous, product]);
-      getTotal();
     } else {
       alert("O produto já foi adicionado ao carrinho");
     }
@@ -60,7 +59,6 @@ function Provider({ children }) {
     updateCart[index] = product;
 
     setCart(updateCart);
-    getTotal();
   }
 
   function decrement(product) {
@@ -76,7 +74,6 @@ function Provider({ children }) {
     updateCart[index] = product;
 
     setCart(updateCart);
-    getTotal();
   }
 
   function remove(product) {
@@ -93,7 +90,6 @@ function Provider({ children }) {
     console.log(removeProduct);
 
     setCart([...removeProduct]);
-    getTotal();
   }
 
   const contextValue = {
@@ -106,7 +102,6 @@ function Provider({ children }) {
     increment,
     decrement,
     remove,
-    getTotal,
     total,
   };
 
