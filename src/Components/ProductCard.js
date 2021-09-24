@@ -1,5 +1,7 @@
 import React, { useContext } from 'react';
 import Context from '../ContextApi/Context';
+import { FiHeart } from "react-icons/fi";
+
 
 
 function ProductCard({product}) {
@@ -7,12 +9,18 @@ function ProductCard({product}) {
   const { thumbnail, price, title } = product;
 
   return (
-    <section>
+    <section className="card">
       <img src={ thumbnail } alt="product-img" />
-      <p>{ title }</p>
-      <p>{ price }</p>
+
+      <div className="card-title">
+        <p>{ title }</p>
+        <FiHeart color="red" size={20} />
+      </div>
+      
+      <p className="card-price" >{ price }</p>
       <button 
         type="button"
+        className="btn-add"
         onClick={() => {
           addToCart(product);
           setshowCart(true);
