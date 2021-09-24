@@ -8,12 +8,16 @@ function Provider({ children }) {
   const [isLoading, setisLoading] = useState(true);
   const [cart, setCart] = useState([]);
   const [showCart, setshowCart] = useState(false);
+  
 
   async function getProducts() {
     const data = await fetch('https://api.mercadolibre.com/sites/MLB/search?q=$camisas');
     const productsData = await data.json();
     console.log([...firstProducts,  ...productsData.results]);
-    setProducts([...firstProducts,  ...productsData.results]);
+    
+    const AllProducts = [...firstProducts,  ...productsData.results];
+    AllProducts.map((item) => item['amount'] = 1);
+    setProducts(AllProducts);
     setisLoading(false);
   }
 
@@ -24,11 +28,41 @@ function Provider({ children }) {
   function addToCart(product) {
     const check = cart.every((item) => product.id !== item.id);
     console.log(check);
+  
     if(check) {
-      setCart((previous) => [...previous, product])
+      setCart((previous) => [...previous, product]);
     } else {
       alert("O produto já foi adicionado ao carrinho");
     }
+  }
+
+  function increment(product) {
+    product.amount += 1;
+
+    const updateCart = [...cart]
+
+    let index = updateCart.findIndex((item) => item.id === product.id);
+    console.log(index);
+
+    updateCart[index] = product;
+
+    setCart(updateCart);
+
+  }
+
+  function decrement(product) {
+    product.amount -= 1;
+
+    if(product.amount <= 1) product.amount = 1;
+    
+    const updateCart = [...cart]
+
+    let index = updateCart.findIndex((item) => item.id === product.id);
+    console.log(index);
+
+    updateCart[index] = product;
+
+    setCart(updateCart);
   }
   
   const contextValue = {
@@ -37,7 +71,9 @@ function Provider({ children }) {
     addToCart,
     cart,
     showCart, 
-    setshowCart
+    setshowCart,
+    increment,
+    decrement,
   };
 
   return (
