@@ -28,3 +28,30 @@
 	line-height: 16px;
 	font-size: 10px;
 }
+
+.produtos {
+	margin-top: 50px;
+	h1 {
+		text-align: center;
+		font-size: 26px;
+		text-transform: uppercase;
+    letter-spacing: .2rem;
+	}
+}
+
+.rec.rec-arrow {
+	border-radius: 100%;
+	background-color: #CCCCCC;
+	border-style: none;
+	color: white;
+}
+
+.rec.rec-arrow:hover {
+	background-color: $secondcolor;
+}
+
+button.rec-dot{
+  visibility: hidden;
+}
+
+
