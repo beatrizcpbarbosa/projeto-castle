@@ -3,14 +3,17 @@ import Context from '../ContextApi/Context';
 
 
 function ShopCart() {
-  const { cart, increment, decrement } = useContext(Context);
+  const { cart, increment, decrement, remove, getTotal, setshowCart } = useContext(Context);
 
-  // if(!cart){
-  //   return <h2> Your cart is empty!</h2>
-  // } 
+  if(!cart){
+    return <h2> Your cart is empty!</h2>
+  } 
 
   return (
     <section>
+      
+      <button type="button" onClick={() => setshowCart(false)}> Sair </button>
+
       { cart.map((item) => {
         const { thumbnail, price, title, amount, id } = item;
         return (
@@ -20,9 +23,13 @@ function ShopCart() {
             <p> { price } </p>
             <div>
               <button type="button" onClick={() => increment(item)}> + </button>
-              <sapan>{ amount }</sapan>
+              <span>{ amount }</span>
               <button type="button" onClick={() => decrement(item)}> - </button>
             </div>
+            <p>{ price * amount }</p>
+            <button type="button" onClick={() => remove(item)}> deletar </button>
+            <p>Total:</p>
+            <span>{() => getTotal(item)}</span>
           </div>
         );
       }) }

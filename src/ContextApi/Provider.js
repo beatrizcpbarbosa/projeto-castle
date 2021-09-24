@@ -64,6 +64,22 @@ function Provider({ children }) {
 
     setCart(updateCart);
   }
+
+  function remove(product) {
+    product.amount = 1;
+    
+    const updateCart = [...cart]
+
+    let index = updateCart.findIndex((item) => item.id === product.id);
+    console.log(index);
+
+    updateCart[index] = product;
+
+    const removeProduct = updateCart.filter((item) => item.id !== product.id);
+    console.log(removeProduct);
+
+    setCart([...removeProduct]);
+  }
   
   const contextValue = {
     products,
@@ -74,6 +90,7 @@ function Provider({ children }) {
     setshowCart,
     increment,
     decrement,
+    remove,
   };
 
   return (
