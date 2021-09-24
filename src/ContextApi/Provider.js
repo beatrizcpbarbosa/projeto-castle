@@ -27,15 +27,15 @@ function Provider({ children }) {
   }, []);
 
   useEffect(() => {
+    function getTotal() {
+      const total = cart.reduce((prev, item) => {
+        return prev + (item.price * item.amount);
+      },0)
+      setTotal(total);
+    }
+
     getTotal();
   }, [cart]);
-
-  function getTotal() {
-    const total = cart.reduce((prev, item) => {
-      return prev + (item.price * item.amount);
-    },0)
-    setTotal(total);
-  }
 
   function addToCart(product) {
     const check = cart.every((item) => product.id !== item.id);
